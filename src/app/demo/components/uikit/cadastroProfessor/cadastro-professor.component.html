@@ -1,0 +1,24 @@
+<sesi-cadastro-professor-view
+    #sesiView
+    (emitModalFiltro)="recebeModalFiltros(sesiFiltro.modalProps)"
+    (emitModalCadastro)="recebeModalCadastro(sesiCadastro.modalProps)"
+    (emitDadosCadastro)="recebeDadosCadastro($event)"
+>
+</sesi-cadastro-professor-view>
+
+<sesi-cadastro-professor-cadastro
+    #sesiCadastro
+    [cadastro]="cadastro"
+    [estado]="sesiView.estado"
+    [tabelaProps]="sesiView.tabelaProps"
+    (emitCancelarCadastro)="recebeCancelarCadastro($event)"
+    (emiteNovoFormulario)="recebeConfirmacaoSalvar($event)"
+>
+</sesi-cadastro-professor-cadastro>
+
+<sesi-cadastro-professor-filtro
+    #sesiFiltro
+    [filtros]="filtros"
+    [tabelaProps]="sesiView.tabelaProps"
+>
+</sesi-cadastro-professor-filtro>

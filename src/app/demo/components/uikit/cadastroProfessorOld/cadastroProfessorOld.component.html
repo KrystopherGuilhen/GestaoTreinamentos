@@ -1,0 +1,73 @@
+<div class="grid">
+    <div class="col-12">
+        <p-table
+            [paginator]="true"
+            [tableStyle]="{ 'min-width': '50rem' }"
+            [rowsPerPageOptions]="[5, 10, 20]"
+            [scrollable]="true"
+            scrollHeight="400px"
+            dataKey="code"
+        >
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 25%">Nome</th>
+                    <th style="width: 25%">Cidade</th>
+                    <th style="width: 25%">Telefone</th>
+                    <th style="width: 25%">Email</th>
+                    <th style="width: 25%">CPF</th>
+                    <th style="width: 50%">Número de registro Profissional</th>
+                    <th style="width: 50%">Unidade de registro Profissional</th>
+                    <th style="width: 50%">Estado de registro Profissional</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="product" />
+                    </td>
+                    <!-- <td>{{product.code}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.quantity}}</td> -->
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <h5>Registro de Palestrante</h5>
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="firstname2">Nome</label>
+                    <input pInputText id="firstname2" type="text" />
+                </div>
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="lastname2">Sobrenome</label>
+                    <input pInputText id="lastname2" type="text" />
+                </div>
+                <div class="field col-12">
+                    <label htmlFor="address">E-mail</label>
+                    <input pInputTextarea id="address" rows="4" />
+                </div>
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="city">Cidade</label>
+                    <input pInputText id="city" type="text" />
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="state">Estado</label>
+                    <p-dropdown
+                        [options]="dropdownItems"
+                        optionLabel="name"
+                        [(ngModel)]="selectedState"
+                    ></p-dropdown>
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="zip">CEP</label>
+                    <input pInputText id="zip" type="text" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
