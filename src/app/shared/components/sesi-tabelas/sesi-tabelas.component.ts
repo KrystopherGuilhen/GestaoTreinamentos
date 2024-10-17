@@ -31,6 +31,7 @@ export class SesiTabelasComponent implements OnInit {
   }
 
   public removeRegistro(rowData: any): void {
+    console.log("exclusao aqui")
     this.confirmation.confirm({
       header: 'Confirmar',
       message: `Deseja remover o registros selecionado?`,

@@ -13,22 +13,35 @@ export class CadastroProfessorComponent implements OnInit {
     cadastro: ICadastroProfessor = {
         todosDealers: false,
         preencherArquivo: false,
-        id_dealer: '',
-        id_categoria_venda: '',
-        ano: null,
-        anoNumber: FuncoesUtils.conversaoAnoAtual(),
-        mes: null,
-        mesDate: FuncoesUtils.conversaoMesAtual(),
-        tipo_valor: 'S',
-        valor: 0,
+        nome_professor: '',
+        endereco: '',
+        cidade: '',
+        estado: '',
+        telefone: '',
+        cpf: '',
+        email: '',
+        numero_registro_profissional: 0,
+        unidade_registro_profissinal: '',
+        estado_registro_profissional: '',
+        // anoNumber: FuncoesUtils.conversaoAnoAtual(),
+        // mes: null,
+        // mesDate: FuncoesUtils.conversaoMesAtual(),
+        // tipo_valor: 'S',
+        // valor: 0,
     };
     filtros: ICadastroProfessor = {
-        id_dealer: '',
-        id_categoria_venda: '',
-        ano: '',
-        mes: '',
-        mesDate: FuncoesUtils.conversaoMesAtual(),
-        anoNumber: FuncoesUtils.conversaoAnoAtual(),
+        nome_professor: '',
+        endereco: '',
+        cidade: '',
+        estado: '',
+        telefone: '',
+        cpf: '',
+        email: '',
+        numero_registro_profissional: 0,
+        unidade_registro_profissinal: '',
+        estado_registro_profissional: '',
+        // mesDate: FuncoesUtils.conversaoMesAtual(),
+        //noNumber: FuncoesUtils.conversaoAnoAtual(),
     };
     exibeCadastro: boolean = false;
     exibeFiltros: boolean = false;
@@ -51,8 +64,8 @@ export class CadastroProfessorComponent implements OnInit {
 
     public recebeDadosCadastro(cadastro: ICadastroProfessor): void {
         this.cadastro = cadastro;
-        this.cadastro.mesDate = this.converteMesTipoDate(this.cadastro.mes);
-        this.cadastro.anoNumber = Number(this.cadastro.ano);
+        // this.cadastro.mesDate = this.converteMesTipoDate(this.cadastro.mes);
+        // this.cadastro.anoNumber = Number(this.cadastro.ano);
     }
 
     public recebeCancelarCadastro(cadastro: ICadastroProfessor): void {
@@ -66,9 +79,9 @@ export class CadastroProfessorComponent implements OnInit {
         if (formulario.submitted) {
             this.formularioVazio();
         } else {
-            this.cadastro.anoNumber =
-                new Date(this.cadastro.ano).getFullYear() + 1;
-            this.cadastro.mesDate = new Date(this.cadastro.mes);
+            // this.cadastro.anoNumber =
+            //     new Date(this.cadastro.ano).getFullYear() + 1;
+            // this.cadastro.mesDate = new Date(this.cadastro.mes);
         }
     }
 
@@ -81,14 +94,21 @@ export class CadastroProfessorComponent implements OnInit {
         return (this.cadastro = {
             todosDealers: false,
             preencherArquivo: false,
-            id_dealer: '',
-            id_categoria_venda: '',
-            ano: null,
-            anoNumber: FuncoesUtils.conversaoAnoAtual(),
-            mes: null,
-            mesDate: FuncoesUtils.conversaoMesAtual(),
-            tipo_valor: 'S',
-            valor: 0,
+            nome_professor: '',
+            endereco: '',
+            cidade: '',
+            estado: '',
+            telefone: '',
+            cpf: '',
+            email: '',
+            numero_registro_profissional: 0,
+            unidade_registro_profissinal: '',
+            estado_registro_profissional: '',
+            //anoNumber: FuncoesUtils.conversaoAnoAtual(),
+            //mes: null,
+            //mesDate: FuncoesUtils.conversaoMesAtual(),
+            //tipo_valor: 'S',
+            //valor: 0,
         });
     }
 }

@@ -1,18 +1,29 @@
-import { Directive, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
+import {
+    Directive,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChanges,
+} from '@angular/core';
 // import { IModal } from "@model/components/nbs-modal";
 // import { IForms } from "@model/components/nbs-forms";
-import { ControleService } from "../services/controle.service";
+import { ControleService } from '../services/controle.service';
 // import { Estado } from "@shared/enum/estado.enum";
-import { CrudAbstractComponent } from "./crud-template.abstract";
-import { MessageService, ConfirmationService } from "primeng/api";
-import { IForms } from "src/app/model/components/sesi-forms";
-import { IModal } from "src/app/model/components/sesi-modal";
-import { ITabela } from "src/app/model/components/sesi-tabelas";
-import { Estado } from "../enum/estado.enum";
+import { CrudAbstractComponent } from './crud-template.abstract';
+import { MessageService, ConfirmationService } from 'primeng/api';
+import { IForms } from 'src/app/model/components/sesi-forms';
+import { IModal } from 'src/app/model/components/sesi-modal';
+import { ITabela } from 'src/app/model/components/sesi-tabelas';
+import { Estado } from '../enum/estado.enum';
 // import { ITabela } from "@model/components/nbs-tabelas";
 
 @Directive()
-export abstract class CrudFormsAbstractComponent extends CrudAbstractComponent implements OnInit, OnChanges {
+export abstract class CrudFormsAbstractComponent
+    extends CrudAbstractComponent
+    implements OnInit, OnChanges
+{
     @Input() abstract modalProps: IModal;
     abstract filtros: any;
     abstract formFiltros: IForms[];
@@ -25,8 +36,12 @@ export abstract class CrudFormsAbstractComponent extends CrudAbstractComponent i
     @Output() emitCancelarCadastro: EventEmitter<any> = new EventEmitter<any>();
     @Output() emitFiltro: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(requestService: ControleService, messageService: MessageService, confirmationService: ConfirmationService) {
-        super(requestService, messageService, confirmationService)
+    constructor(
+        requestService: ControleService,
+        messageService: MessageService,
+        confirmationService: ConfirmationService
+    ) {
+        super(requestService, messageService, confirmationService);
     }
 
     ngOnInit(): void {
@@ -45,7 +60,6 @@ export abstract class CrudFormsAbstractComponent extends CrudAbstractComponent i
             } else if (this.estado === Estado.alterar) {
                 this.modalProps.titulo = 'Editar';
             }
-
         }
 
         this.constroiFormulario();
@@ -79,16 +93,16 @@ export abstract class CrudFormsAbstractComponent extends CrudAbstractComponent i
 
         this.retornaDados(this.tabelaProps, filtros);
         this.limparFormulario();
-        
+
         this.modalProps.exibeModal = !this.modalProps.exibeModal;
     }
 
     public upload(event: any): void {
-        console.log(event)
+        console.log(event);
     }
 
     protected abstract tratarCampos(): void;
-    protected abstract constroiListas(): void
+    protected abstract constroiListas(): void;
     protected abstract constroiFormulario(): void;
     protected abstract limparFormulario(): void;
 }

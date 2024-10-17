@@ -1,9 +1,4 @@
 import { Component, Input } from '@angular/core';
-// import { CrudFormsAbstractComponent } from '@shared/templates/crud-forms-template.abstract';
-// import { IModal } from '@model/components/nbs-modal';
-// import { IForms } from '@model/components/nbs-forms';
-// import { ICadastroProfessor, ICadastroProfessorsListas } from '@model/previsao-venda';
-// import { ControleService } from '@shared/services/controle.service';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { IForms } from 'src/app/model/components/sesi-forms';
 import { IModal } from 'src/app/model/components/sesi-modal';
@@ -15,8 +10,6 @@ import {
 import { ControleService } from 'src/app/shared/services/controle.service';
 import { CrudFormsAbstractComponent } from 'src/app/shared/templates/crud-forms-template.abstract';
 import { FuncoesUtils } from 'src/app/shared/utils/funcoes-utils';
-// import { FuncoesUtils } from '@shared/utils/funcoes-utils';
-// import { ITabela } from '@model/components/nbs-tabelas';
 
 @Component({
     selector: 'sesi-cadastro-professor-filtro',
@@ -83,14 +76,14 @@ export class CadastroProfessorFiltroComponent extends CrudFormsAbstractComponent
         this.formFiltros = [
             {
                 colSpan: 6,
-                formModel: 'id_dealer',
+                formModel: 'nome_professor',
                 descricao: 'Dealers',
                 tipoDado: 'lista',
                 optInput: {
                     lista: this.listas.dealers,
                     listaLabel: 'label',
                     listaValue: 'value',
-                    placeholder: 'Selecione um dealer...',
+                    placeholder: 'Selecione um professor...',
                 },
             },
             {
@@ -131,23 +124,29 @@ export class CadastroProfessorFiltroComponent extends CrudFormsAbstractComponent
     }
 
     protected tratarCampos(): void {
-        const mes = this.filtros.mesDate.getMonth() + 1;
+        // const mes = this.filtros.mesDate.getMonth() + 1;
 
-        this.filtros.ano = this.filtros.anoNumber.toString();
-        this.filtros.mes = mes.toString();
+        // this.filtros.ano = this.filtros.anoNumber.toString();
+        // this.filtros.mes = mes.toString();
 
-        delete this.filtros.anoNumber;
-        delete this.filtros.mesDate;
+        // delete this.filtros.anoNumber;
+        // delete this.filtros.mesDate;
     }
 
     protected limparFormulario(): void {
         this.filtros = {
-            id_dealer: '',
-            id_categoria_venda: '',
-            ano: '',
-            mes: '',
-            mesDate: FuncoesUtils.conversaoMesAtual(),
-            anoNumber: FuncoesUtils.conversaoAnoAtual(),
+            nome_professor: '',
+            endereco: '',
+            cidade: '',
+            estado: '',
+            telefone: '',
+            cpf: '',
+            email: '',
+            numero_registro_profissional: 0,
+            unidade_registro_profissinal: '',
+            estado_registro_profissional: '',
+            // mesDate: FuncoesUtils.conversaoMesAtual(),
+            // anoNumber: FuncoesUtils.conversaoAnoAtual(),
         };
     }
 }
